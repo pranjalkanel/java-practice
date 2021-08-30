@@ -7,6 +7,8 @@ import java.util.Queue;
 public class LQueue {
 
 	public static void main (String [] args) {
+		
+		// Usage of queue using linkedlist implementation
 		Queue<Integer> myQueue = new LinkedList<>();
 		
 		// offer returns false if it fails to insert
