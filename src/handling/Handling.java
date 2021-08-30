@@ -22,9 +22,10 @@ public class Handling {
 			
 		}
 		
-		
+		// declaring string literals greeting and anotherGreeting
 		String greeting = "hi";
 		String anotherGreeting = "hi";
+		// declaring string object
 		String greeting1 = new String("hi");
 		
 		System.out.println(greeting.equals(greeting1));
@@ -54,5 +55,7 @@ public class Handling {
 		 * where as .equals() compares the value of the object
 		 * object and primitive will not return true if compared using == operator
 		 * */
+		
+		//Character bc = Character.valueOf('n');
 	}
 }
