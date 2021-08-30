@@ -15,8 +15,11 @@ public class Handling {
 			System.out.println(e.getLocalizedMessage());
 			System.out.println(e.getMessage());
 		}finally {
-			//this block executes regardless of the error in try and catch
+			/**this block executes regardless of the error in try and catch
+			 * only use finally with a try catch block
+			 */
 			System.out.println("hi, you can see this message anyways");
+			
 		}
 		
 		
@@ -35,5 +38,21 @@ public class Handling {
 		if(greeting == anotherGreeting) {
 			System.out.println("Greeting and anotherGreeting are pointing to the same location");
 		}
+		
+		Integer ex = 1;
+		@SuppressWarnings("removal")
+		Integer px = new Integer(1);
+		
+		if(ex == px) {
+			System.out.println("integers are equal using operator");
+		}
+		if(px.equals(ex)) {
+			System.out.println("integers are equal using method");
+		}
+		
+		/* == used to compare the pointer at memory
+		 * where as .equals() compares the value of the object
+		 * object and primitive will not return true if compared using == operator
+		 * */
 	}
 }
