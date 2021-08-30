@@ -1,0 +1,39 @@
+package handling;
+
+public class Handling {
+	
+	public static void main(String[] args) {
+		int a = 2;
+		int b = 0;
+		
+		try {
+			System.out.println(a/b);
+		}catch(ArithmeticException  e) {
+			System.out.println("Calculation is incorrect");
+		}catch(Exception e){
+			// catching generic expection
+			System.out.println(e.getLocalizedMessage());
+			System.out.println(e.getMessage());
+		}finally {
+			//this block executes regardless of the error in try and catch
+			System.out.println("hi, you can see this message anyways");
+		}
+		
+		
+		String greeting = "hi";
+		String anotherGreeting = "hi";
+		String greeting1 = new String("hi");
+		
+		System.out.println(greeting.equals(greeting1));
+		
+		if (greeting == greeting1) {
+			System.out.println("Both point to the same location");
+		}else {
+			System.out.println("Both do not point to the same location");
+		}
+	
+		if(greeting == anotherGreeting) {
+			System.out.println("Greeting and anotherGreeting are pointing to the same location");
+		}
+	}
+}
