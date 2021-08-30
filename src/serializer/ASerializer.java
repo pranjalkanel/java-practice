@@ -24,7 +24,9 @@ public class ASerializer {
 		try {
 			Model obj = new Model("Pranjal", 1, 18000, "9861367460");
 			
+			// file outputstream generates a text file with byte stream serialized
 			FileOutputStream fos = new FileOutputStream("modelinfo.txt");
+			// object outputstream serializes the data 
 			ObjectOutputStream oos = new ObjectOutputStream(fos);
 			
 			oos.writeObject(obj);
@@ -38,10 +40,13 @@ public class ASerializer {
 	
 	public void deserialize() {
 		try {
+			// file input steram reads the serialized data
 			FileInputStream fis = new FileInputStream("D:/Post College/Java/java-practice/modelinfo.txt");
-            ObjectInputStream ois = new ObjectInputStream(fis);
+            // object input stream reads the serialized data
+			ObjectInputStream ois = new ObjectInputStream(fis);
             Model obj= (Model)ois.readObject();
             
+            // printing the serialized data
             System.out.println(obj.name);
             System.out.println(obj.id);
             System.out.println(obj.salary);
