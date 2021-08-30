@@ -21,11 +21,11 @@ public class MultiThreading {
 		Thread thread1 = new Thread(obj1);
 		Thread thread2 = new Thread(obj2);
 		
-		thread1.run();
+		thread1.start();
 		System.out.println(thread1.getName());
 		// delaying the main thread
 		try {Thread.sleep(10);}catch(Exception e) {}
-		thread2.run();
+		thread2.start();
 		System.out.println(thread2.getName());
 	}
 }
