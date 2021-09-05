@@ -1,5 +1,9 @@
 package handling;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Shandling {
 
 	public static void main(String[] args) {
@@ -13,8 +17,13 @@ public class Shandling {
 		//obj.compare();
 		//obj.equality();
 		//obj.rplc();
-		obj.slicing();
+		//obj.slicing();
 		//obj.sformat();
+		//obj.removeVowel();
+		//obj.formatAddress();
+		//obj.shuffleString();
+		//obj.checkComparison();
+		obj.addFix();
 	}
 	
 	// Get character of a string at given index
@@ -87,4 +96,74 @@ public class Shandling {
 		
 		System.out.println(d);
 	}
+	
+	// remove vowels from a string
+	public void removeVowel() {
+		String input = "This is a string";
+		
+		ArrayList<Character> vowels = new ArrayList<Character>(Arrays.asList('a','e','i','o','u'));
+		
+		ArrayList<Character> result = new ArrayList<Character>();
+		
+		for (char i : input.toCharArray()) {
+			if (!vowels.contains(i)) {
+				result.add(i);
+			}
+		}
+		
+		System.out.println(result.toString());
+	}
+	
+	// change . to [.] of a ipv4 address
+	public void formatAddress() {
+		String address = "1.1.1.1";
+		
+		String result = address.replace(".", "[.]");
+		System.out.println(result);
+	}
+	
+	// for the given sequence of indices, change the string sequence
+	public void shuffleString() {
+		String input = "codeleet";
+		int[] indices = {4,5,6,7,0,1,2,3};
+		
+		char[] result = new char[input.length()];
+		
+		if (input.length() == indices.length) {
+			for (int i=0; i<indices.length; i++) {
+				result[indices[i]] = input.toCharArray()[i];
+			}
+		}
+		
+		System.out.println(String.valueOf(result));
+	}
+	
+	// compare string
+	public void checkComparison() {
+		String jewels = "aA";
+		String stones = "aAAbbbb";
+		
+		int counter = 0;
+		
+		for (char x : stones.toCharArray()) {
+			if (jewels.indexOf(x) >= 0 ) {
+				counter++;
+			}
+		}
+		
+		System.out.println(counter);
+	}
+	
+	// postfix and prefix
+	public void addFix() {
+		int a = 0;
+		int b = 0;
+		
+		for (int i = 0; i<3; i++) {
+			System.out.println("a " + a++); // adds 1 to a and returns old value
+			System.out.println("b " + ++b); // adds 1 to b and returns the added value
+		}
+	}
+	
+	// unable to eat lunch
 }
