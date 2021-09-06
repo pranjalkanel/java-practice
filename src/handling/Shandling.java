@@ -2,6 +2,7 @@ package handling;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 
 public class Shandling {
@@ -27,7 +28,9 @@ public class Shandling {
 		//obj.findPi();
 		//obj.fibonacci();
 		//obj.getLastLength();
-		obj.longContiguous();
+		//obj.longContiguous();
+		//obj.paranthesis();
+		obj.longSubString();
 	}
 	
 	// Get character of a string at given index
@@ -256,4 +259,34 @@ public class Shandling {
 			System.out.println("false");
 		}
 	}
+	
+	// longest substring without repitition
+	public void longSubString() {
+		HashSet<Character> result = new HashSet<Character>();
+		HashSet<Character> tmp = new HashSet<Character>();
+		
+		String s = "fksdjflsdfpppsdfkjjf";
+		char[] sarr = s.toCharArray();
+		
+		for (int i=0; i<sarr.length;i++) {
+			int j = i;
+			while (j < sarr.length) {
+				if(!tmp.contains(Character.valueOf(sarr[j]))) {
+					tmp.add(sarr[j]);
+					j++;
+				}else {
+					break;
+				}
+				
+			}
+			if(result.size()<tmp.size()) {
+				result = new HashSet<>(tmp);
+			}
+			tmp.clear();
+		}
+		
+		System.out.println(result.size());
+	}
+	
+	
 }
