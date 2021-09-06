@@ -23,7 +23,11 @@ public class Shandling {
 		//obj.formatAddress();
 		//obj.shuffleString();
 		//obj.checkComparison();
-		obj.addFix();
+		//obj.addFix();
+		//obj.findPi();
+		//obj.fibonacci();
+		//obj.getLastLength();
+		obj.longContiguous();
 	}
 	
 	// Get character of a string at given index
@@ -165,5 +169,91 @@ public class Shandling {
 		}
 	}
 	
-	// unable to eat lunch
+	// reverse integer
+	public void reverseInteger() {
+		int a = 10;
+		
+		if (a< Integer.MAX_VALUE && a > Integer.MIN_VALUE ) {
+			
+			int remainder = 0;
+			while(remainder != a) {
+				
+			}
+		}else {
+			System.out.println(0);
+		}
+	}
+	
+	// find pi to nth decimal
+	public void findPi() {
+		
+		double n = 10.0;		
+		double pi = 22.0/7;
+		
+//		System.out.println(pi);
+//		System.out.println(Math.pow(10, n));
+		
+		int roundOff = (int) (pi * (Math.pow(10.0, n)));
+		
+		//System.out.println(roundOff);
+		
+		double result = (double) roundOff;
+		//System.out.println(result);
+		result = result / Math.pow(10.0, n);
+		
+		System.out.println(result);
+	}
+	
+	//fibonacci sequence upto n
+	public void fibonacci() {
+		int n = 10;
+		int[] result = new int[n];
+		result[0] = 0;
+		result[1] = 1;
+		for (int i = 2; i<n;i++) {
+			result[i] = result[i-1] + result[i-2];
+		}
+		
+		System.out.println(Arrays.toString(result));
+	}
+	
+	// get length of last word of a string separated by spaces
+	public void getLastLength() {
+		String abc = "   fly me   to   the moon  ";
+		String[] process = abc.split(" ");
+		
+		String result = process[process.length-1].strip();
+		
+		System.out.println("The last word is "+ result +" with length of " + result.length());
+	}
+	
+	//  longest contiguous segment
+	public void longContiguous() {
+		int onMax = 0;
+		int offMax = 0;
+		
+		int onCounter = 0;
+		int offCounter = 0;
+		
+		String binary = "100011111";
+		char[] binaryArray = binary.toCharArray();
+		
+		for (int i =0; i<binaryArray.length;i++) {
+			if(binaryArray[i] =='1') {
+				offCounter = 0;
+				onCounter++;
+				onMax = Math.max(onMax, onCounter);
+			}else {
+				onCounter = 0;
+				offCounter++;
+				offMax = Math.max(offMax, offCounter);
+			}
+		}
+		
+		if (onMax > offMax) {
+			System.out.println("true");
+		}else {
+			System.out.println("false");
+		}
+	}
 }
