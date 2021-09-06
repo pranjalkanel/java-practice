@@ -30,7 +30,8 @@ public class Shandling {
 		//obj.getLastLength();
 		//obj.longContiguous();
 		//obj.paranthesis();
-		obj.longSubString();
+		//obj.longSubString();
+		obj.arrangePos();
 	}
 	
 	// Get character of a string at given index
@@ -288,5 +289,33 @@ public class Shandling {
 		System.out.println(result.size());
 	}
 	
+	// arrange even number at even index and odd number at odd index
+	public void arrangePos() {
+		int[] inputArr = {10, 9, 7, 18, 13, 19, 4, 20, 21, 14};
+		
+		int oddIndex = 1;
+		int evenIndex = 0;
+		
+		while(true) {
+			while(evenIndex < inputArr.length && inputArr[evenIndex]%2 == 0) {
+				evenIndex = evenIndex + 2;
+			}
+			while(oddIndex < inputArr.length && inputArr[oddIndex]%2 == 1  ) {
+				oddIndex = oddIndex +2 ;
+			}
+			
+			if(oddIndex < inputArr.length && evenIndex < inputArr.length ) {
+				int tmp = inputArr[evenIndex];
+				inputArr[evenIndex] = inputArr[oddIndex];
+				inputArr[oddIndex] = tmp;
+			}else {
+				break;
+			}
+		}
+		
+		for(int x :inputArr ) {
+			System.out.println(x);
+		}
+	}
 	
 }
