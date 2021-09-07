@@ -3,6 +3,7 @@ package handling;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Shandling {
@@ -31,7 +32,8 @@ public class Shandling {
 		//obj.longContiguous();
 		//obj.paranthesis();
 		//obj.longSubString();
-		obj.arrangePos();
+		//obj.arrangePos();
+		obj.reverseInt();
 	}
 	
 	// Get character of a string at given index
@@ -316,6 +318,31 @@ public class Shandling {
 		for(int x :inputArr ) {
 			System.out.println(x);
 		}
+	}
+	
+	// add two numbers
+//	public void addNodeNumber() {
+//		List<Integer> l1 = new LinkedList<Integer>(Arrays.asList(2,4,3));
+//		List<Integer> l2 = new LinkedList<Integer>(Arrays.asList(5,6,4));
+//		
+//		List<Integer> result = new LinkedList<Integer>();
+//		
+//		for(int i =0; i<l1.size()) {
+//			
+//		}
+//	}
+	
+	// reverse an integer
+	public void reverseInt() {
+		int x = -426;
+		long result = 0;
+		
+		while(x != 0) {
+			result = (result * 10) + (x % 10);
+			x = x/10;
+		}
+		
+		System.out.println((int) result);
 	}
 	
 }
