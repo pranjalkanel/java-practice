@@ -2,9 +2,11 @@ package handling;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class Shandling {
 
@@ -33,7 +35,9 @@ public class Shandling {
 		//obj.paranthesis();
 		//obj.longSubString();
 		//obj.arrangePos();
-		obj.reverseInt();
+		//obj.reverseInt();
+		//obj.twoSum();
+		obj.twoSumIndices();
 	}
 	
 	// Get character of a string at given index
@@ -345,4 +349,53 @@ public class Shandling {
 		System.out.println((int) result);
 	}
 	
+	// Two sum leetcode (printing actual values present in list)
+	public void twoSum() {
+		int[] nums = {2,7,11,15};
+		int target = 9;
+		
+		int[] result = new int[2];
+		
+		for(int a: nums ) {
+			if(a <= target) {
+				if(Arrays.stream(nums).anyMatch(i -> i == target-a)) {
+					result[0] = a;
+					result[1] = target - a;
+					break;
+				}
+			}
+			
+		}
+		
+		System.out.println(Arrays.toString(result));
+	}	
+	
+	// Two sum leetcode (printing indices of the values present in list)
+	public void twoSumIndices() {
+		int[] nums = {-3,7,12,15};
+		int target = 9;
+		
+		/*
+		 * Check if target - current value is in hashmap or not
+		 * if not, add the current value and its index to the hashmap*/
+		
+		
+		Map<Integer,Integer> container = new HashMap<Integer,Integer>();
+		
+		int[] result = new int[2];
+		
+		for (int i = 0; i < nums.length; i++) {
+			Integer val2 = container.get(target - nums[i]);
+			
+			if(val2 != null) {
+				result[0] = val2;
+				result[1] = i;
+				break;
+			}else {
+				container.put(nums[i], i);
+			}
+		}
+		
+		System.out.println(Arrays.toString(result));
+	}
 }

@@ -1,5 +1,8 @@
 package handling;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Handling {
 	
 	public static void main(String[] args) {
@@ -57,5 +60,10 @@ public class Handling {
 		 * */
 		
 		//Character bc = Character.valueOf('n');
+		
+		Map<Integer,Integer> eg = new HashMap<Integer,Integer>();
+		eg.put(3, 0);
+		
+		System.out.println(eg.get(3)); // returns null if value does not exist
 	}
 }
