@@ -37,7 +37,8 @@ public class Shandling {
 		//obj.arrangePos();
 		//obj.reverseInt();
 		//obj.twoSum();
-		obj.twoSumIndices();
+		//obj.twoSumIndices();'
+		obj.maxSubArray();
 	}
 	
 	// Get character of a string at given index
@@ -397,5 +398,18 @@ public class Shandling {
 		}
 		
 		System.out.println(Arrays.toString(result));
+	}
+	
+	// maximum subarray; sub array of an int array should return the maximum possible sum
+	public void maxSubArray() {
+		int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
+		
+		if(nums.length == 1) {
+			System.out.println(nums[0]);
+		}else {
+			int startPoint = 0;
+			int endPoint = startPoint + 1;
+			
+		}
 	}
 }
