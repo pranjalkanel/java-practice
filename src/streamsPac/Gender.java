@@ -1,4 +1,4 @@
-package practice;
+package streamsPac;
 
 public enum Gender {
 	MALE, FEMALE

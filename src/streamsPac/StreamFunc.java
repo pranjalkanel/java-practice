@@ -1,4 +1,4 @@
-package practice;
+package streamsPac;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -65,6 +65,7 @@ public class StreamFunc {
 			people1.forEach(System.out::println);
 			System.out.println();
 		});
+		
 	}
 	
 	public static List<PersonData> getPeople(){

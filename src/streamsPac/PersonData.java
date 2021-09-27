@@ -1,4 +1,4 @@
-package practice;
+package streamsPac;
 
 public class PersonData {
 	
