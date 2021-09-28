@@ -42,7 +42,7 @@ public class Shandling {
 		//obj.twoSumIndices();'
 		//obj.maxSubArray();
 		//System.out.println(Arrays.asList(obj.keyboardWord()) ); 
-		System.out.println(Arrays.asList(obj.favRestaurant())); 
+		System.out.println(Arrays.asList(obj.favRestaurant1())); 
 	}
 	
 	// Get character of a string at given index
@@ -463,13 +463,14 @@ public class Shandling {
 		
 		
 		Set<String> compareSet;
+		String[] compareArray;
+		String[] biggerArray;
 		
 		Map<String, Integer> buffer = new HashMap<String, Integer>();
 		
 		ArrayList<String> result = new ArrayList<String>();
 		
-		String[] compareArray;
-		String[] biggerArray;
+		
 		
 		if(list1.length <= list2.length) {
 			compareArray = list1;
@@ -496,5 +497,36 @@ public class Shandling {
 		});
 		
 		return result.toArray(new String[0]);
+	}
+	
+	public String[] favRestaurant1() {
+		String[] list1 = {"Shogun","Tapioca Express","Burger King","KFC"};
+		String[] list2 = {"KFC","Shogun","Burger King"};
+		
+		
+		Set<String> compareSet = new HashSet<String>(Arrays.asList(list2));
+		
+		
+		Map<String, Integer> buffer = new HashMap<String, Integer>();
+		
+		ArrayList<String> result = new ArrayList<String>();
+		
+		
+		for(int i = 0; i< list1.length;i++) {
+			if (compareSet.contains(list1[i])) {
+				buffer.put(list1[i], i+ Arrays.asList(list2).indexOf(list1[i]));
+			}
+		}
+		
+		int min = Collections.min(buffer.values());
+		
+		buffer.forEach((key, value) -> {
+			if(value == min) {
+				result.add(key);
+			}
+		});
+		
+		return result.toArray(new String[0]);
+		
 	}
 }
