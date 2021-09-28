@@ -38,7 +38,8 @@ public class Shandling {
 		//obj.reverseInt();
 		//obj.twoSum();
 		//obj.twoSumIndices();'
-		obj.maxSubArray();
+		//obj.maxSubArray();
+		System.out.println(Arrays.asList(obj.keyboardWord()) ); 
 	}
 	
 	// Get character of a string at given index
@@ -411,6 +412,43 @@ public class Shandling {
 			int endPoint = startPoint + 1;
 			
 		}
+	}
+	
+	public String[] keyboardWord() {
+		
+		String[] rows = {"qwertyuiop","asdfghjkl","zxcvbnm"};
+		
+		String[] words = {"Hello","Alaska","Dad","Peace"};
+		
+		ArrayList<String> result = new ArrayList<String>();
+		
+		int rowChecker = -1;
+		boolean rowTrue = true;
+		
+		for (int j = 0; j<words.length;j++) {
+			
+			for(int i=0; i< rows.length; i++) {
+				if(rows[i].indexOf(words[j].toLowerCase().charAt(0)) > -1 ) {
+					rowChecker = i;
+				}
+			}
+			
+			for (char l: words[j].toLowerCase().toCharArray()) {
+				if(rows[rowChecker].indexOf(l) < 0) {
+					rowTrue = !rowTrue;
+					break;
+				}
+				
+			}
+			
+			if(rowTrue) {
+				result.add(words[j]);
+			}
+			rowChecker = -1;
+			rowTrue = true;
+		}
+			
+		return result.toArray(new String[0]);
 	}
 	
 }
