@@ -2,11 +2,13 @@ package handling;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Shandling {
 
@@ -39,7 +41,8 @@ public class Shandling {
 		//obj.twoSum();
 		//obj.twoSumIndices();'
 		//obj.maxSubArray();
-		System.out.println(Arrays.asList(obj.keyboardWord()) ); 
+		//System.out.println(Arrays.asList(obj.keyboardWord()) ); 
+		System.out.println(Arrays.asList(obj.favRestaurant())); 
 	}
 	
 	// Get character of a string at given index
@@ -414,6 +417,8 @@ public class Shandling {
 		}
 	}
 	
+	
+	// Words that can be typed with the same row in keyboard
 	public String[] keyboardWord() {
 		
 		String[] rows = {"qwertyuiop","asdfghjkl","zxcvbnm"};
@@ -451,4 +456,45 @@ public class Shandling {
 		return result.toArray(new String[0]);
 	}
 	
+	// Minimum Index Sum of Two Lists
+	public String[] favRestaurant() {
+		String[] list1 = {"Shogun","Tapioca Express","Burger King","KFC"};
+		String[] list2 = {"KFC","Shogun","Burger King"};
+		
+		
+		Set<String> compareSet;
+		
+		Map<String, Integer> buffer = new HashMap<String, Integer>();
+		
+		ArrayList<String> result = new ArrayList<String>();
+		
+		String[] compareArray;
+		String[] biggerArray;
+		
+		if(list1.length <= list2.length) {
+			compareArray = list1;
+			biggerArray = list2;
+			compareSet = new HashSet<String>(Arrays.asList(list2));
+		}else {
+			compareArray= list2;
+			biggerArray = list1;
+			compareSet =  new HashSet<String>(Arrays.asList(list1));
+		}
+		
+		for(int i = 0; i< compareArray.length;i++) {
+			if (compareSet.contains(compareArray[i])) {
+				buffer.put(compareArray[i], i+ Arrays.asList(biggerArray).indexOf(compareArray[i]));
+			}
+		}
+		
+		int min = Collections.min(buffer.values());
+		
+		buffer.forEach((key, value) -> {
+			if(value == min) {
+				result.add(key);
+			}
+		});
+		
+		return result.toArray(new String[0]);
+	}
 }
