@@ -42,7 +42,8 @@ public class Shandling {
 		//obj.twoSumIndices();'
 		//obj.maxSubArray();
 		//System.out.println(Arrays.asList(obj.keyboardWord()) ); 
-		System.out.println(Arrays.asList(obj.favRestaurant1())); 
+		//System.out.println(Arrays.asList(obj.favRestaurant1()));
+		obj.decodeMorseLaw();
 	}
 	
 	// Get character of a string at given index
@@ -509,7 +510,7 @@ public class Shandling {
 		
 		Map<String, Integer> buffer = new HashMap<String, Integer>();
 		
-		ArrayList<String> result = new ArrayList<String>();
+		List<String> result = new LinkedList<String>();
 		
 		
 		for(int i = 0; i< list1.length;i++) {
@@ -528,5 +529,27 @@ public class Shandling {
 		
 		return result.toArray(new String[0]);
 		
+	}
+	
+	//decode morse code
+	public void decodeMorseLaw() {
+		String[] morseLetters = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+	
+		String alphabets = "abcdefghijklmnopqrstuvwxyz";
+		
+		String [] words = {"gin","zen","gig","msg"};
+		
+		Set<String> result = new HashSet<String>();
+		
+		for(String word : words) {
+			String transformation = "";
+			for(char a : word.toCharArray()) {
+				transformation = transformation.concat(morseLetters[alphabets.indexOf(a)]);
+			}
+			result.add(transformation);
+			transformation = "";
+		}
+		
+		System.out.println(result.size());
 	}
 }
