@@ -43,7 +43,8 @@ public class Shandling {
 		//obj.maxSubArray();
 		//System.out.println(Arrays.asList(obj.keyboardWord()) ); 
 		//System.out.println(Arrays.asList(obj.favRestaurant1()));
-		obj.decodeMorseLaw();
+//		obj.decodeMorseLaw();
+		obj.shortestToChar();
 	}
 	
 	// Get character of a string at given index
@@ -533,11 +534,11 @@ public class Shandling {
 	
 	//decode morse code
 	public void decodeMorseLaw() {
+		String [] words = {"gin","zen","gig","msg"};
+		
 		String[] morseLetters = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
 	
 		String alphabets = "abcdefghijklmnopqrstuvwxyz";
-		
-		String [] words = {"gin","zen","gig","msg"};
 		
 		Set<String> result = new HashSet<String>();
 		
@@ -551,5 +552,35 @@ public class Shandling {
 		}
 		
 		System.out.println(result.size());
+	}
+	
+	//closes occurence of character
+	public void shortestToChar() {
+		String s = "loveleetcode";
+		char c = 'e';
+		
+		List<Integer> indexOfChar = new ArrayList<Integer>();
+		int[] result = new int[s.length()];
+		
+		for(int i =0;i<s.length();i++) {
+			if(s.charAt(i) == c) {
+				indexOfChar.add(i);
+			}
+		}
+		System.out.println(indexOfChar);
+		
+		for (int i = 0; i < s.length();i++) {
+			if(s.charAt(i) == c) {
+				result[i] = 0;
+			}else {
+				int min = Integer.MAX_VALUE;
+				for(Integer x: indexOfChar) {
+					min = Math.min(Math.abs(x-i), min);
+				}
+				result[i] = min;
+			}
+		}
+		
+		Arrays.stream(result).forEach(System.out::print);
 	}
 }
