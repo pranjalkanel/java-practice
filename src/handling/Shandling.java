@@ -44,7 +44,8 @@ public class Shandling {
 		//System.out.println(Arrays.asList(obj.keyboardWord()) ); 
 		//System.out.println(Arrays.asList(obj.favRestaurant1()));
 //		obj.decodeMorseLaw();
-		obj.shortestToChar();
+		//obj.shortestToChar();
+		obj.searchInsert();
 	}
 	
 	// Get character of a string at given index
@@ -599,5 +600,21 @@ public class Shandling {
         Arrays.stream(emails).forEach(System.out::println);
 	}
 	
-	
+	// search insert position
+	public void searchInsert() {
+		int[] nums = {1,3,5,6};
+		int target = 5;
+		
+		int left = 0, right = nums.length-1; // implementation of binary search
+		
+		while(left <= right) {
+			int mid = (left+right)/2;
+			
+			if(nums[mid] == target) System.out.println(mid); 
+			else if (nums[mid] > target) right = mid -1;
+			else left = mid +1;
+		}
+		
+		System.out.println(left);
+	}
 }
